@@ -131,8 +131,8 @@ const ProjectCard = (props) => {
                     
                 </Container>
             </CardContainer>
-            <button className={`${showOptions ? 'show fadeIn' : 'show fadeOut'}`} onMouseOver={handleMouseOver}>View Code</button>
-            <button className={`${showOptions ? 'show fadeIn' : 'show fadeOut'}`}  onMouseOver={handleMouseOver} >View Site</button>
+            <button className={`${showOptions ? 'show fadeIn' : 'show fadeOut'}`} onMouseOver={handleMouseOver}>View The Code</button>
+            <button className={`${showOptions ? 'show fadeIn' : 'show fadeOut'}`}  onMouseOver={handleMouseOver} >View The Site</button>
         </HoverContainer>
     )
 }
