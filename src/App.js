@@ -6,6 +6,8 @@ import Projects from './Components/ProjectsPage/Projects';
 import About from './Components/About/About';
 import PageBtn from './Components/Button/PageButton/PageButton';
 
+import Icons from './Components/Icons/Icons';
+
 
 const DisplayArea = styled.div`
   width: 100%;
@@ -16,37 +18,49 @@ const DisplayArea = styled.div`
 
 const MainContent = styled.div`
   width: 100%;
-  animation: SlideIn 1.2s;
-  animation-delay: .5s;
-  animation-fill-mode: backwards;
+  height: 100vh;
   overflow: hidden;
-  font-size: 2.5rem;
+  font-size: 2rem;
 
   .landing {
+    height: 50vh;
     padding-left: 8.5rem;
+    opacity: 1;
     position: relative;
     top: 18%;
+    animation: SlideIn 1.2s;
+    animation-delay: .5s;
+    animation-fill-mode: backwards;
+
+    h1, h3 {
+      position: relative;
+      z-index: 10;
+
+    }
 
   }
 
   @keyframes SlideIn {
-    0% {top: 20%; opacity: 0; font-size: 0rem;}
+    0% {top: 20%; opacity: 0; font-size: 0rem; position: relative;
+      z-index: 10;}
     
-    50% {font-size: 4rem}
-    100% {opacity: 1}
+    50% {font-size: 4rem; position: relative;
+      z-index: 10;}
+    100% {opacity: 1; position: relative;
+      z-index: 10;}
   } 
 `;
 
-const fullwidthContainer = styled.div`
-        width: 100vw;
-        height: 15vh;
-        z-index: 11;
+
+
+const FullWidthContainer = styled.div`
+        height: 100vh;
         display: flex;
         justify-content: center;
         
       `;
 
-      const ContentContainer = styled.div`
+      const NavCircleContainer = styled.div`
         width: 15vw;
         position: fixed;
         left: 40%;
@@ -151,18 +165,15 @@ const App = () => {
     }
 
     function PageNavCircles() {
-
-      
-
       return (
         <>
-            <fullwidthContainer>
-              <ContentContainer>
+            <FullWidthContainer>
+              <NavCircleContainer >
                 <div className={`${pageToRender === 'about' ? 'active' : 'opacity'}`}></div>
                 <div className={`${pageToRender === 'landing' ? 'active' : 'opacity'}`} ></div>
                 <div className={`${pageToRender === 'project' ? 'active' : 'opacity'}`}></div>
-              </ContentContainer>
-            </fullwidthContainer>
+              </NavCircleContainer >
+            </FullWidthContainer>
         </>
       )
     }
@@ -170,11 +181,14 @@ const App = () => {
     const LandingPage = () => {
       return (
         <>
-          <h1>Noel Williams</h1>
-          <h3>Web Developer</h3>
+          <div className='landing'>
+            <h1>Noel Williams</h1>
+            <h3>Web Developer</h3>
+          </div>
         </>
       )
     }
+
 
   return (
     <div className="App">
@@ -184,7 +198,14 @@ const App = () => {
         <MainContent>
           {pageToRender === 'about' && <About />}
 
-          {pageToRender === 'landing' && <div className='landing' >{LandingPage()}</div>}
+          {pageToRender === 'landing' && <><LandingPage /> <Icons css={{
+            transform: 'rotate(45deg) scaleX(-1)',
+            left: '3%', 
+            opacity: '0.5', 
+            color: 'black', 
+            'z-index': '0',
+            'backface-visibility': 'visible'
+            }} /><Icons css={{right: '8%', }}/></>}
 
           {pageToRender === 'project' && <Projects />}  
 

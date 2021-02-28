@@ -42,11 +42,15 @@ const Projects = () => {
                 <CenteredContainer>
                     <Card 
                     name='Aromatherapy'
-                    bg={img}/>
+                    bg={img}
+                    site='https://keen-poitras-6360a4.netlify.app/'
+                    code='https://github.com/noelw19/Aromatherapy_site'/>
 
                     <Card 
                     name='Stock Tracker'
-                    bg={img1}/>
+                    bg={img1}
+                    site='https://unruffled-borg-11a2bb.netlify.app/'
+                    code='https://github.com/noelw19/stock-app'/>
                 </CenteredContainer>
             </FullWidthContainer>
         </ProjectContainer>

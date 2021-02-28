@@ -5,6 +5,10 @@ const HoverContainer = styled.div`
     margin:2rem;
     animation: cardFadeIn 1s;
 
+    :hover {
+        color: white;
+    }
+
 
     button {
         background: #66FCF1;
@@ -17,17 +21,17 @@ const HoverContainer = styled.div`
         margin-right: 1rem;
         border-radius: 50px;
         z-index: 2;
-        display: none;
 
         :hover {
             background: linear-gradient(to right, #0B0C10, #1F2833);
             color: #66FCF1;
+            opacity: 1;
         }
         
     }
 
-    .show {
-        display: inline;
+    .opac {
+        opacity: 0;
     }
 
     .fadeIn {
@@ -55,7 +59,7 @@ const HoverContainer = styled.div`
     }
 
     @keyframes fadeOut {
-        0% {opacity: 1; display: inline; z-index: 2;}
+        0% {z-index: 1;}
 
         100% {opacity: 0; transform: translateX(30px);}
 }
@@ -68,6 +72,10 @@ const CardContainer = styled.div`
     display: flex;
     justify-content: flex-start;
     align-items: center;
+
+    :hover {
+        opacity: 0.5;
+    }
 
 
     @media(min-width: 660px){
@@ -108,7 +116,7 @@ const CardContainer = styled.div`
     `;
 
 const ProjectCard = (props) => {
-    const [showOptions, setShowOptions] = useState(false);
+    const [showOptions, setShowOptions] = useState('initial');
 
     const img = props.bg;
 
@@ -118,6 +126,32 @@ const ProjectCard = (props) => {
 
     function handleMouseOut(){
         setShowOptions(false);
+    }
+
+    function siteBtnHandler() {
+        return (
+            window.open(`${props.site}`)
+        )
+    }
+
+    function codeBtnHandler() {
+        return (
+            window.open(`${props.code}`)
+        )
+    }
+
+    function buttonShow() {
+        let returnVal;
+
+        if(showOptions === 'initial') {
+            returnVal = 'opac';
+        } else if(showOptions === true) {
+            returnVal = 'fadeIn';
+        } else if(showOptions === false) {
+            returnVal = 'fadeOut';
+        }
+
+        return returnVal;
     }
 
     return (
@@ -131,8 +165,8 @@ const ProjectCard = (props) => {
                     
                 </Container>
             </CardContainer>
-            <button className={`${showOptions ? 'show fadeIn' : 'show fadeOut'}`} onMouseOver={handleMouseOver}>View The Code</button>
-            <button className={`${showOptions ? 'show fadeIn' : 'show fadeOut'}`}  onMouseOver={handleMouseOver} >View The Site</button>
+            <button className={buttonShow()} onMouseOver={handleMouseOver} onClick={codeBtnHandler}>View The Code</button>
+            <button className={buttonShow()}  onMouseOver={handleMouseOver} onClick={siteBtnHandler}>View The Site</button>
         </HoverContainer>
     )
 }
