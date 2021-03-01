@@ -79,7 +79,11 @@ const FullWidthContainer = styled.div`
             display: flex;
             align-items: end;
             font-size: 1.5rem;
-            color: #C5C6C7;
+            //color: #C5C6C7;
+            color: transparent;
+            background: rgb(102,252,241);
+            background: linear-gradient(270deg, rgba(102,252,241,1) 57%, rgba(255,255,255,1) 59%); 
+            background-clip: text;
         }
     `;
 
@@ -93,7 +97,7 @@ const About = () => {
                 <CenteredContainer>
                     <p className='pLeft'><span>Birth Place</span>: Port Moresby, Papua New Guinea.</p>
                     <p className='pLeft'><span>Born</span>: 19th April 1995.</p>
-                    <p className='pLeft'>Living in Nelson, NZ.</p>
+                    <p className='pLeft'><span>Living in</span>: Nelson, NZ.</p>
                     <p className='mainAbout'>
                         A 26 year old with a thirst for knowledge, 
                         a bubbly personality and a never give-up attitude. 

@@ -23,7 +23,7 @@ const GlowArea = styled.div`
         }
 
         button:hover {
-            animation: none;
+            animation-play-state: paused;
           }
           
           @keyframes pulse {
