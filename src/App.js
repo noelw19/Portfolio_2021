@@ -28,8 +28,8 @@ const MainContent = styled.div`
     opacity: 1;
     position: relative;
     top: 18%;
-    animation: SlideIn 1.2s;
-    animation-delay: .5s;
+    animation: SlideIn 1s;
+    animation-delay: .2s;
     animation-fill-mode: backwards;
 
     h1, h3 {
@@ -205,7 +205,7 @@ const App = () => {
             color: 'black', 
             'z-index': '0',
             'backface-visibility': 'visible'
-            }} /><Icons css={{right: '8%', }}/></>}
+            }} color={{color: 'black'}}/><Icons css={{right: '8%', }}/></>}
 
           {pageToRender === 'project' && <Projects />}  
 

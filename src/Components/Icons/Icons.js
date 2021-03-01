@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { DiJsBadge, DiCss3, DiHtml5, DiReact } from "react-icons/di";
-import { SiStyledComponents, SiTailwindcss} from "react-icons/si";
+import { DiJsBadge, DiCss3, DiHtml5, DiReact, DiGithubBadge } from "react-icons/di";
+import { SiStyledComponents, SiTailwindcss, SiLinkedin} from "react-icons/si";
 
 const IconContainer = styled.div`
     width: 50vw;
@@ -10,6 +10,7 @@ const IconContainer = styled.div`
     position: absolute;
     right: 10%;
     bottom: 35%;
+    z-index: 100;
 
     p{
       text-align: center;
@@ -39,6 +40,47 @@ const InnerContainer = styled.div`
       transform: rotate(45deg)
     }
 
+    .js {
+        color: yellow;
+    }
+
+    .html {
+        color: orangered;
+    }
+
+    .css {
+        color: #2965f1 ;
+    }
+
+    .git {
+        color: white;
+    }
+
+    .lnkIn {
+        color: #0077B5;
+    }
+
+    .TWCss {
+        color: #87CEFA;
+    }
+
+    .iconC:hover {
+        animation: iconFlip 1s ease-out;
+
+    }
+
+    @keyframes iconFlip {
+        from {
+            opacity: 1;
+            transform: rotate(360deg);
+            
+        }
+        to {
+            transform: rotate(0deg);
+            backface-visibility: visible;
+        }
+    }
+
 `;
 
 
@@ -46,16 +88,16 @@ const Icons = (props) => {
     return (
         <IconContainer style={props.css}>
             <InnerContainer>
-                <div><DiJsBadge className='icon'/></div>
-                <div><DiHtml5 className='icon' /></div>
-                <div><DiCss3 className='icon'/></div>
-                <div><DiReact className='icon'/></div>
+                <div className='iconC'><DiJsBadge className='icon js' style={props.color}/></div>
+                <div className='iconC'><DiHtml5 className='icon html' style={props.color}/></div>
+                <div className='iconC'><DiCss3 className='icon css' style={props.color}/></div>
+                <div className='iconC'><DiReact className='icon' style={props.color}/></div>
             </InnerContainer>
             <InnerContainer>
-                <div><SiStyledComponents className='icon'/></div>
-                <div><DiHtml5 className='icon' /></div>
-                <div><DiCss3 className='icon'/></div>
-                <div><SiTailwindcss className='icon'/></div>
+                <div className='iconC'><SiStyledComponents className='icon' style={props.color}/></div>
+                <div className='iconC'><DiGithubBadge className='icon git' style={props.color}/></div>
+                <div className='iconC'><SiLinkedin className='icon lnkIn' style={props.color}/></div>
+                <div className='iconC'><SiTailwindcss className='icon TWCss' style={props.color}/></div>
             </InnerContainer>
         </ IconContainer>
         
