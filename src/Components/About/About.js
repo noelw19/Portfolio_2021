@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import img from '../../Images/colors.png';
+import img from '../../Images/cvNew';
 
 const ProjectContainer = styled.div`
     width: 100vw;
@@ -36,41 +36,50 @@ const FullWidthContainer = styled.div`
     `;
 
     const ImgContainer = styled.div`
-        width: 20vw;
-        height: 40vh;
+        width: 15vw;
+        height: 31vh;
         background-image: url('${img}');
         background-size: cover;
         background-repeat: no-repeat;
         background-position: 50% 50%;
+        transform: scale(1);
         border-radius: 50%;
-        border: white 3px solid;
+        border: #45A29E 3px solid;
 
         position: absolute;
-        left:10%;
-        top: 10%;
+        left:15%;
+        top: 23%;
 
     `;
 
     const CenteredContainer = styled.div`
-        width: 50%;
+        width: 70%;
         height: auto;
-        font-size: 1rem;
-        padding-left: 12rem;
-        text-align: left;
+        font-size: 1.2rem;
+        padding-top: 1.5rem;
 
         p {
             color: white;
         }
 
-        .center {
-            text-align: center;
+        span {
+            color: #66FCF1;
+        }
+
+        .pLeft {
+            text-align: left;
+            padding-left: 14rem;
         }
 
         .mainAbout {
             width: 100%;
-            height: auto;
+            height: 90%;
             word-wrap: break-word;
-            text-align: right;
+            text-align: left;
+            display: flex;
+            align-items: end;
+            font-size: 1.5rem;
+            color: #C5C6C7;
         }
     `;
 
@@ -82,10 +91,18 @@ const About = () => {
             <FullWidthContainer>
             
                 <CenteredContainer>
-                <p className='center'>A web developer living in Nelson, NZ.</p>
-                <p className='center'>Born in Port Moresby, Papua New Guinea.</p>
-                    <p className='center'>Born on 19th April 1995.</p>
-                    <p className='mainAbout'>In the pursuit of knowledge, I applied for a bachaelor of Information Tech and realised my hidden love for it. Currently I am working with Javascript, Html, Css and React, which I enjoy alot and working on building my knowledge within the front-end and back-end. </p>
+                    <p className='pLeft'><span>Birth Place</span>: Port Moresby, Papua New Guinea.</p>
+                    <p className='pLeft'><span>Born</span>: 19th April 1995.</p>
+                    <p className='pLeft'>Living in Nelson, NZ.</p>
+                    <p className='mainAbout'>
+                        A 26 year old with a thirst for knowledge, 
+                        a bubbly personality and a never give-up attitude. 
+                        I pride myself on my work, progessing daily to continue 
+                        to be proud of the work I do and how far I have come, 
+                        currently within the hospitality industry I am slowly 
+                        progressing toward finding a job within the I.T industry, 
+                        by building my skills and finding enjoyment in fixing bugs 
+                        both within my code and life.</p>
                 </CenteredContainer>
             </FullWidthContainer>
         </ProjectContainer>

@@ -155,7 +155,7 @@ const ProjectCard = (props) => {
     }
 
     return (
-        <HoverContainer onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
+        <HoverContainer onMouseOver={handleMouseOver} onMouseLeave={handleMouseOut}>
             <CardContainer>
                 <TitleContainer>
                 <h5>{props.name}</h5>

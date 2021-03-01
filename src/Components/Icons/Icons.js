@@ -104,4 +104,12 @@ const Icons = (props) => {
     )
 }
 
+const IconsText = () => {
+    return (
+        <>
+            <h3>jn</h3>
+        </>
+    )
+}
+
 export default Icons;

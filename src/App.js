@@ -42,10 +42,10 @@ const MainContent = styled.div`
 
   @keyframes SlideIn {
     0% {top: 20%; opacity: 0; font-size: 0rem; position: relative;
-      z-index: 10;}
+      z-index: 105;}
     
-    50% {font-size: 4rem; position: relative;
-      z-index: 10;}
+    50% {font-size: 3rem; position: relative;
+      z-index: 105;}
     100% {opacity: 1; position: relative;
       z-index: 10;}
   } 
