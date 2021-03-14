@@ -189,7 +189,6 @@ const App = () => {
       )
     }
 
-
   return (
     <div className="App">
       <DisplayArea>
@@ -204,11 +203,15 @@ const App = () => {
             opacity: '0.5', 
             color: 'black', 
             'z-index': '0',
-            'backface-visibility': 'visible'
+            'backface-visibility': 'visible',
             }} color={{color: 'black'}}/><Icons css={{right: '8%', }}/></>}
 
           {pageToRender === 'project' && <Projects />}  
-
+            
+            {/* look at extracting the icon components
+            and adding them to a separate function that checks screen size 
+            and displays both on desktop and only 1 of the components below
+            header. */}
           
         </MainContent>
 

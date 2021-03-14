@@ -32,6 +32,12 @@ const FullWidthContainer = styled.div`
 
         display: flex;
         justify-content: center;
+
+        @media (max-width: 650px) {
+            display: flex;
+            justify-content: flex-start;
+            flex-direction: column;
+        }
     `;
 
 const Projects = () => {

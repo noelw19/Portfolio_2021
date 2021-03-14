@@ -36,8 +36,8 @@ const FullWidthContainer = styled.div`
     `;
 
     const ImgContainer = styled.div`
-        width: 15vw;
-        height: 31vh;
+        width: 180px;
+        height: 180px;
         background-image: url('${img}');
         background-size: cover;
         background-repeat: no-repeat;
@@ -47,15 +47,15 @@ const FullWidthContainer = styled.div`
         border: #45A29E 3px solid;
 
         position: absolute;
-        left:15%;
-        top: 23%;
+        left:17%;
+        top: 24%;
 
     `;
 
     const CenteredContainer = styled.div`
         width: 70%;
         height: auto;
-        font-size: 1.2rem;
+        font-size: 1rem;
         padding-top: 1.5rem;
 
         p {
@@ -66,9 +66,14 @@ const FullWidthContainer = styled.div`
             color: #66FCF1;
         }
 
-        .pLeft {
+        .pRight {
             text-align: left;
             padding-left: 14rem;
+
+            //mobile
+            @media (max-width: 1000px) {
+                font-size: 1rem;
+            }
         }
 
         .mainAbout {
@@ -77,13 +82,18 @@ const FullWidthContainer = styled.div`
             word-wrap: break-word;
             text-align: left;
             display: flex;
-            align-items: end;
-            font-size: 1.5rem;
+            align-items: center;
+            font-size: 1.2rem;
             //color: #C5C6C7;
             color: transparent;
             background: rgb(102,252,241);
             background: linear-gradient(270deg, rgba(102,252,241,1) 57%, rgba(255,255,255,1) 59%); 
             background-clip: text;
+
+            //mobile
+            @media (max-width: 650px) {
+                font-size: 1rem;
+            }
         }
     `;
 
@@ -95,9 +105,9 @@ const About = () => {
             <FullWidthContainer>
             
                 <CenteredContainer>
-                    <p className='pLeft'><span>Birth Place</span>: Port Moresby, Papua New Guinea.</p>
-                    <p className='pLeft'><span>Born</span>: 19th April 1995.</p>
-                    <p className='pLeft'><span>Living in</span>: Nelson, NZ.</p>
+                    <p className='pRight'><span>Born</span>: 19th April 1995.</p>
+                    <p className='pRight'><span>Living in</span>: Nelson, NZ.</p>
+                    <p className='pRight'><span>Birth Place</span>: Port Moresby, Papua New Guinea.</p>
                     <p className='mainAbout'>
                         A 26 year old with a thirst for knowledge, 
                         a bubbly personality and a never give-up attitude. 

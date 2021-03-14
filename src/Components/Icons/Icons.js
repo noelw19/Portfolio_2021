@@ -33,6 +33,15 @@ const InnerContainer = styled.div`
         flex-direction: column;
         justify-content: center;
       }
+
+      //working on responsice icons
+      @media(max-width: 650px) {
+          transform: rotate(45deg);
+
+          .icon{
+            transform: rotate(45deg);
+          }
+      }
     
     .icon {
       width: 100%;
@@ -101,14 +110,6 @@ const Icons = (props) => {
             </InnerContainer>
         </ IconContainer>
         
-    )
-}
-
-const IconsText = () => {
-    return (
-        <>
-            <h3>jn</h3>
-        </>
     )
 }
 
