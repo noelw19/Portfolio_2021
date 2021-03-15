@@ -50,6 +50,14 @@ const FullWidthContainer = styled.div`
         left:17%;
         top: 24%;
 
+        @media (max-width: 888px) {
+            left: 55%;
+            top 20%;
+            width: 130px;
+            height: 130px;
+
+        }
+
     `;
 
     const CenteredContainer = styled.div`
@@ -71,14 +79,17 @@ const FullWidthContainer = styled.div`
             padding-left: 14rem;
 
             //mobile
-            @media (max-width: 1000px) {
-                font-size: 1rem;
+            @media (max-width: 888px) {
+                padding-left: 2rem;
+                margin-top: 1rem;
+                
+                font-size: .8rem;
             }
         }
 
         .mainAbout {
-            width: 100%;
-            height: 90%;
+            width: 80%;
+            height: 100%;
             word-wrap: break-word;
             text-align: left;
             display: flex;
@@ -91,8 +102,10 @@ const FullWidthContainer = styled.div`
             background-clip: text;
 
             //mobile
-            @media (max-width: 650px) {
+            @media (max-width: 888px) {
                 font-size: 1rem;
+                margin-left: 2rem;
+                padding-right: 2rem;
             }
         }
     `;

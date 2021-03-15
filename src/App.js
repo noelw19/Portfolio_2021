@@ -14,6 +14,11 @@ const DisplayArea = styled.div`
   height: 100vh;
   color: #66FCF1;
   display: flex;
+  justify-content: center;
+
+  .hideIt {
+    visibility: hidden;
+  }
 `;
 
 const MainContent = styled.div`
@@ -28,7 +33,7 @@ const MainContent = styled.div`
     opacity: 1;
     position: relative;
     top: 18%;
-    animation: SlideIn 1s;
+    animation: SlideIn 1.4s ease-out;
     animation-delay: .2s;
     animation-fill-mode: backwards;
 
@@ -38,17 +43,32 @@ const MainContent = styled.div`
 
     }
 
+    @media(max-width: 888px) {
+      padding-left: 0;
+      top: 0%;
+
+      h1, h3 {
+        font-size: 2.5rem;
+      }
+      }
+      
+    }
+
   }
 
   @keyframes SlideIn {
-    0% {top: 20%; opacity: 0; font-size: 0rem; position: relative;
+    0% {position: relative; top: -10%; opacity: 0; font-size: 3rem;
       z-index: 105;}
     
-    50% {font-size: 3rem; position: relative;
+    50% {font-size: 2rem; position: relative; top:40%;
+      left: 0%;
       z-index: 105;}
     100% {opacity: 1; position: relative;
       z-index: 10;}
   } 
+
+  
+  
 `;
 
 
@@ -97,6 +117,7 @@ const App = () => {
 
   const [pageToRender, setPageToRender] = useState('landing');
   const [switchDirection, setSwitchDirection] = useState('');
+  const [mobile, setMobile] = useState('');
 
 
   useEffect(() => {
@@ -189,6 +210,23 @@ const App = () => {
       )
     }
 
+    //listens for resize event and sets the current state
+    window.addEventListener('resize', () => {
+      if(window.innerWidth <= 888) {
+        setMobile('mobile'); 
+      }else {
+        setMobile('notMobile');
+      }
+    })
+
+    window.addEventListener('onLoad', () => {
+      if(window.innerWidth <= 888) {
+        setMobile('mobile'); 
+      }else {
+        setMobile('notMobile');
+      }
+    })
+
   return (
     <div className="App">
       <DisplayArea>
@@ -196,15 +234,18 @@ const App = () => {
           {PageNavCircles()}
         <MainContent>
           {pageToRender === 'about' && <About />}
-
-          {pageToRender === 'landing' && <><LandingPage /> <Icons css={{
+                                                              {/*if in mobile render the coloured icons only else render the left and right icon components*/}
+          {pageToRender === 'landing' && <><LandingPage /> 
+          {mobile === 'mobile' ?
+          <Icons className={'spinner'}  css={{right: '8%', }}></Icons> : 
+          <><Icons className='left-icons' css={{
             transform: 'rotate(45deg) scaleX(-1)',
             left: '3%', 
             opacity: '0.5', 
             color: 'black', 
-            'z-index': '0',
-            'backface-visibility': 'visible',
-            }} color={{color: 'black'}}/><Icons css={{right: '8%', }}/></>}
+            'zIndex': '0',
+            'backfaceVisibility': 'visible',
+            }} color={{color: 'black'}}/> <Icons css={{right: '8%', }}/></>}</>}
 
           {pageToRender === 'project' && <Projects />}  
             

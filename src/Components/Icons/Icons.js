@@ -15,8 +15,16 @@ const IconContainer = styled.div`
     p{
       text-align: center;
     }
-  
-  
+
+    //working on responsive icons
+    //corresponds with app file title media query
+      @media(max-width: 888px) {
+
+        transform: rotate(0deg);
+        bottom: 10%;
+        left: 30%;
+        
+      }
 `;
 
 const InnerContainer = styled.div`
@@ -34,21 +42,41 @@ const InnerContainer = styled.div`
         justify-content: center;
       }
 
-      //working on responsice icons
-      @media(max-width: 650px) {
+      .icon {
+        width: 100%;
+        height: 100%;
+        transform: rotate(45deg);
+        animation: spin 2s;
+        animation-delay: 1.2s;
+        animation-fill-mode: backwards;
+      }
+
+      @keyframes spin {
+        0% {transform:rotate(-360deg) translateX(500px); opacity: 0;}
+
+        100% {
           transform: rotate(45deg);
 
-          .icon{
-            transform: rotate(45deg);
+        }
+      }
+    
+      .spinner {
+        animation: spin 2s ease-out;
+        animation-delay: .8s;
+    
+      }
+  
+
+      //working on responsive icons
+      //changes may affect the event listeners in the app file.
+      @media(max-width: 888px) {
+
+          .icon {
+            transform: rotate(0deg);
           }
       }
     
-    .icon {
-      width: 100%;
-      height: 100%;
-      transform: rotate(45deg)
-    }
-
+    
     .js {
         color: yellow;
     }
@@ -91,6 +119,7 @@ const InnerContainer = styled.div`
     }
 
 `;
+
 
 
 const Icons = (props) => {
