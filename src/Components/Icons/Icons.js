@@ -56,7 +56,7 @@ const InnerContainer = styled.div`
 
         100% {
             //needs to be zero so that it ends at the original position
-          transform: rotate(0deg);
+          transform: rotate(45deg);
 
         }
       }
@@ -65,9 +65,21 @@ const InnerContainer = styled.div`
       //working on responsive icons
       //changes may affect the event listeners in the app file.
       @media(max-width: 888px) {
-
+            //mobile breakpoint
+            //makes sure the icons rotate and end 
+            //in a flat state instead of rotated
           .icon {
             transform: rotate(0deg);
+
+            @keyframes spin {
+                0% {transform:rotate(-360deg) translateX(40px); opacity: 0;}
+        
+                100% {
+                    //needs to be zero so that it ends at the original position
+                  transform: rotate(0deg);
+        
+                }
+              }
           }
       }
     

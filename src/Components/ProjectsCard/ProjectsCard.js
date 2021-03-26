@@ -152,6 +152,7 @@ const ProjectCard = (props) => {
         )
     }
 
+    /* function to either sow or hide the project buttons */
     function buttonShow() {
         let returnVal;
     if(window.innerWidth > 888) {

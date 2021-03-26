@@ -11,9 +11,10 @@ const ProjectContainer = styled.div`
     background: linear-gradient(to right, #0B0C10, #1F2833);
     color: #66FCF1;
 
+
     h2 {
         animation: growIn 2s;
-        margin: 0;
+        margin-top: 2%;
         @media (max-width: 888px) {
             width: 100%;
             text-align: left;
@@ -41,6 +42,7 @@ const FullWidthContainer = styled.div`
         height: 40%;
         display: flex;
         justify-content: center;
+        margin-top: 2rem;
 
         @media (max-width: 888px) {
             width: 100%;
@@ -62,12 +64,12 @@ const FullWidthContainer = styled.div`
         border: #45A29E 3px solid;
 
         position: absolute;
-        left:17%;
-        top: 16%;
+        left:15%;
+        top: 22%;
 
         @media (max-width: 888px) {
-            left: 50%;
-            top 18%;
+            left: 55%;
+            top 16%;
             width: 130px;
             height: 130px;
 
@@ -75,15 +77,15 @@ const FullWidthContainer = styled.div`
 
     `;
 
+    /* Holds all of the text elements bar the header */
     const CenteredContainer = styled.div`
         width: 70%;
         height: auto;
         font-size: 1rem;
-        padding-top: 3rem;
+        padding-top: 2rem;
 
         @media (max-width: 888px) {
             width: 100%;
-            margin-top: 2rem;
             
         }
 
@@ -107,6 +109,7 @@ const FullWidthContainer = styled.div`
             }
         }
 
+        //main about holds the bio paragraph
         .mainAbout {
             width: 80%;
             height: auto;
@@ -118,13 +121,14 @@ const FullWidthContainer = styled.div`
             background: rgb(102,252,241);
             background: linear-gradient(270deg, rgba(102,252,241,1) 57%, rgba(255,255,255,1) 59%); 
             background-clip: text;
+            margin-top: 4rem;
 
             //mobile
             @media (max-width: 888px) {
                 font-size: .8rem;
                 margin-left: 2rem;
                 padding-right: 2rem;
-                padding: 0;
+                margin-top: 0;
             }
         }
     `;

@@ -3,7 +3,8 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 import Projects from './Components/ProjectsPage/Projects';
-import About from './Components/About/About';
+import About from './Components/AboutPage/About';
+import Landing from './Components/LandingPage/Landing';
 import PageBtn from './Components/Button/PageButton/PageButton';
 
 import Icons from './Components/Icons/Icons';
@@ -38,7 +39,7 @@ const MainContent = styled.div`
     opacity: 1;
     position: relative;
     top: 8%;
-    left: 35%;
+    left: 33%;
     
 
     h1, h3 {
@@ -49,7 +50,7 @@ const MainContent = styled.div`
 
     @media(max-width: 888px) {
       padding-left: 2rem;
-      top: 20%;
+      top: 21%;
       left: 8%;
 
       h1, h3 {
@@ -129,6 +130,8 @@ const App = () => {
     let currentPage = pageToRender;
     let direction = switchDirection;
 
+    /* checks direction to use and finds the page to render 
+      depending on the button pressed and current page */
     if(direction === 'next') {
       if(currentPage === 'landing') {
         setPageToRender('project')
@@ -158,6 +161,7 @@ const App = () => {
       
   }
 
+    //code for the back and next buttons
     function FixedButtons() {
       return (
           <div>
@@ -190,27 +194,18 @@ const App = () => {
       )
     }
 
+    //navigation circles at the bottom of the page
     function PageNavCircles() {
       return (
         <>
             <FullWidthContainer>
               <NavCircleContainer >
+                {/* 3 divs that conditionally style according to current page */}
                 <div className={`${pageToRender === 'about' ? 'active' : 'opacity'}`}></div>
                 <div className={`${pageToRender === 'landing' ? 'active' : 'opacity'}`} ></div>
                 <div className={`${pageToRender === 'project' ? 'active' : 'opacity'}`}></div>
               </NavCircleContainer >
             </FullWidthContainer>
-        </>
-      )
-    }
-
-    const LandingPage = () => {
-      return (
-        <>
-          <div className='landing'>
-            <h1>Noel Williams</h1>
-            <h3>Web Developer</h3>
-          </div>
         </>
       )
     }
@@ -223,7 +218,7 @@ const App = () => {
         setMobile('notMobile');
       }
     })
-
+    //listener for onload and set current state as mobile or not
     window.addEventListener('load', () => {
       if(window.innerWidth <= 888) {
         setMobile('mobile'); 
@@ -240,9 +235,9 @@ const App = () => {
         <MainContent>
           {pageToRender === 'about' && <About />}
                                                               {/*if in mobile render the coloured icons only else render the left and right icon components*/}
-          {pageToRender === 'landing' && <div className='landingPageContainer'><LandingPage /> 
+          {pageToRender === 'landing' && <div className='landingPageContainer'><Landing /> 
           {mobile === 'mobile' ?
-          <Icons css={{right: '8%'}}></Icons> : 
+          <Icons css={{right: '8%', top: '40%'}}></Icons> : 
           <><Icons className='left-icons' css={{
             transform: 'rotate(45deg) scaleX(-1)',
             left: '3%', 

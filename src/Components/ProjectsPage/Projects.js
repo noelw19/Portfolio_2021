@@ -13,7 +13,8 @@ const ProjectContainer = styled.div`
     color: #66FCF1;
 
     h2{
-        margin: 0;
+        margin-top: 2%;
+        margin-bottom: .5rem;
 
         @media (max-width: 888px) {
             padding-top:4rem;
@@ -70,7 +71,7 @@ const Projects = () => {
     return (
         <ProjectContainer>
             <h2> Projects</h2>
-            <FullWidthContainer className='scrollContainer'>
+            <FullWidthContainer>
                 <CenteredContainer>
                     <Card 
                     name='Aromatherapy'
