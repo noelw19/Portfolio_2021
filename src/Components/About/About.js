@@ -14,6 +14,14 @@ const ProjectContainer = styled.div`
     h2 {
         animation: growIn 2s;
         margin: 0;
+        @media (max-width: 888px) {
+            width: 100%;
+            text-align: left;
+            padding-left: 2rem;
+            position: relative;
+            top: 8%;
+            
+        }
     }
 
     @keyframes growIn {
@@ -33,6 +41,13 @@ const FullWidthContainer = styled.div`
         height: 40%;
         display: flex;
         justify-content: center;
+
+        @media (max-width: 888px) {
+            width: 100%;
+            height: 50%;
+            padding-top: 3.7rem;
+            
+        }
     `;
 
     const ImgContainer = styled.div`
@@ -51,10 +66,10 @@ const FullWidthContainer = styled.div`
         top: 16%;
 
         @media (max-width: 888px) {
-            left: 60%;
+            left: 50%;
             top 10.5%;
-            width: 100px;
-            height: 100px;
+            width: 130px;
+            height: 130px;
 
         }
 
@@ -68,7 +83,7 @@ const FullWidthContainer = styled.div`
 
         @media (max-width: 888px) {
             width: 100%;
-            padding-top: 3rem;
+            
         }
 
         p {
@@ -93,11 +108,9 @@ const FullWidthContainer = styled.div`
 
         .mainAbout {
             width: 80%;
-            height: 100%;
+            height: auto;
             word-wrap: break-word;
             text-align: left;
-            display: flex;
-            align-items: center;
             font-size: 1.2rem;
             padding-top: 1rem;
             color: transparent;
@@ -110,7 +123,7 @@ const FullWidthContainer = styled.div`
                 font-size: .8rem;
                 margin-left: 2rem;
                 padding-right: 2rem;
-                padding-top: 0;
+                padding: 0;
             }
         }
     `;
