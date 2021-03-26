@@ -14,10 +14,10 @@ const ProjectContainer = styled.div`
 
     h2{
         margin: 0;
-        
+
         @media (max-width: 888px) {
             padding-top:4rem;
-            
+            margin-top: 2rem;
         }
     }
 `;
