@@ -55,7 +55,8 @@ const InnerContainer = styled.div`
         0% {transform:rotate(-360deg) translateX(40px); opacity: 0;}
 
         100% {
-          transform: rotate(45deg);
+            //needs to be zero so that it ends at the original position
+          transform: rotate(0deg);
 
         }
       }
@@ -96,11 +97,11 @@ const InnerContainer = styled.div`
     }
 
     .iconC:hover {
-        animation: iconFlip 1s ease-out;
+        animation: iconSpin 1s ease-out;
 
     }
 
-    @keyframes iconFlip {
+    @keyframes iconSpin {
         from {
             opacity: 1;
             transform: rotate(360deg);

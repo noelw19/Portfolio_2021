@@ -242,7 +242,7 @@ const App = () => {
                                                               {/*if in mobile render the coloured icons only else render the left and right icon components*/}
           {pageToRender === 'landing' && <div className='landingPageContainer'><LandingPage /> 
           {mobile === 'mobile' ?
-          <Icons className={'spinner'}  css={{right: '8%', }}></Icons> : 
+          <Icons css={{right: '8%'}}></Icons> : 
           <><Icons className='left-icons' css={{
             transform: 'rotate(45deg) scaleX(-1)',
             left: '3%', 
