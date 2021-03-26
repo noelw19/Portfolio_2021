@@ -22,7 +22,7 @@ const IconContainer = styled.div`
 
         transform: rotate(0deg);
         bottom: 10%;
-        left: 30%;
+        left: 25%;
         
       }
 `;
@@ -47,23 +47,17 @@ const InnerContainer = styled.div`
         height: 100%;
         transform: rotate(45deg);
         animation: spin 2s;
-        animation-delay: 1.2s;
+        animation-delay: 1.5s;
         animation-fill-mode: backwards;
       }
 
       @keyframes spin {
-        0% {transform:rotate(-360deg) translateX(500px); opacity: 0;}
+        0% {transform:rotate(-360deg) translateX(40px); opacity: 0;}
 
         100% {
           transform: rotate(45deg);
 
         }
-      }
-    
-      .spinner {
-        animation: spin 2s ease-out;
-        animation-delay: .8s;
-    
       }
   
 

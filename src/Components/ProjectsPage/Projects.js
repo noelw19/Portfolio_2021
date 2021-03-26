@@ -7,7 +7,7 @@ import img1 from '../../Images/Screenshot_2021-02-27 React App.png';
 
 const ProjectContainer = styled.div`
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     text-align: center;
     padding-top: .5rem;
     background: linear-gradient(to right, #0B0C10, #1F2833);
@@ -20,7 +20,7 @@ const ProjectContainer = styled.div`
 
 const FullWidthContainer = styled.div`
         width: 100vw;
-        height: 40%;
+        height: auto;
         display: flex;
         justify-content: center;
         margin-top: 1rem;
@@ -32,11 +32,14 @@ const FullWidthContainer = styled.div`
 
         display: flex;
         justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
 
-        @media (max-width: 650px) {
+        @media (max-width: 888px) {
             display: flex;
             justify-content: flex-start;
             flex-direction: column;
+            overflow-y: visible;
         }
     `;
 

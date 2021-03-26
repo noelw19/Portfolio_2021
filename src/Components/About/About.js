@@ -13,6 +13,7 @@ const ProjectContainer = styled.div`
 
     h2 {
         animation: growIn 2s;
+        margin: 0;
     }
 
     @keyframes growIn {
@@ -32,7 +33,6 @@ const FullWidthContainer = styled.div`
         height: 40%;
         display: flex;
         justify-content: center;
-        margin-top: 1rem;
     `;
 
     const ImgContainer = styled.div`
@@ -48,11 +48,11 @@ const FullWidthContainer = styled.div`
 
         position: absolute;
         left:17%;
-        top: 24%;
+        top: 16%;
 
         @media (max-width: 888px) {
-            left: 55%;
-            top 20%;
+            left: 60%;
+            top 15.5%;
             width: 130px;
             height: 130px;
 
@@ -64,7 +64,7 @@ const FullWidthContainer = styled.div`
         width: 70%;
         height: auto;
         font-size: 1rem;
-        padding-top: 1.5rem;
+        padding-top: 3rem;
 
         p {
             color: white;
@@ -81,7 +81,7 @@ const FullWidthContainer = styled.div`
             //mobile
             @media (max-width: 888px) {
                 padding-left: 2rem;
-                margin-top: 1rem;
+                margin-top: 0rem;
                 
                 font-size: .8rem;
             }
@@ -95,7 +95,7 @@ const FullWidthContainer = styled.div`
             display: flex;
             align-items: center;
             font-size: 1.2rem;
-            //color: #C5C6C7;
+            padding-top: 1rem;
             color: transparent;
             background: rgb(102,252,241);
             background: linear-gradient(270deg, rgba(102,252,241,1) 57%, rgba(255,255,255,1) 59%); 
@@ -103,9 +103,10 @@ const FullWidthContainer = styled.div`
 
             //mobile
             @media (max-width: 888px) {
-                font-size: 1rem;
+                font-size: .8rem;
                 margin-left: 2rem;
                 padding-right: 2rem;
+                padding-top: 0;
             }
         }
     `;

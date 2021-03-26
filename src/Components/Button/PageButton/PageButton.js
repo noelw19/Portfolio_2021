@@ -8,7 +8,6 @@ const GlowArea = styled.div`
         display: flex;
         justify-content: center;
         align-items: center;
-        border-radius: 50%;
         z-index: 10;
 
         button {
@@ -20,6 +19,17 @@ const GlowArea = styled.div`
             color: black;
             animation: pulse 3s infinite;
 
+        }
+            //adjusted sizes for responsivity 
+        @media (max-width: 888px) {
+            width: 4rem;
+            height: 4rem;
+
+            button {
+                width: 2.5rem;
+                height: 2.5rem;
+                font-size: .5rem;
+            }
         }
 
         button:hover {

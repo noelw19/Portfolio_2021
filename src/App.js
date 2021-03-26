@@ -15,6 +15,7 @@ const DisplayArea = styled.div`
   color: #66FCF1;
   display: flex;
   justify-content: center;
+  overflow: hidden;
 
   .hideIt {
     visibility: hidden;
@@ -24,18 +25,21 @@ const DisplayArea = styled.div`
 const MainContent = styled.div`
   width: 100%;
   height: 100vh;
-  overflow: hidden;
   font-size: 2rem;
+  overflow: hidden;
+  
 
   .landing {
-    height: 50vh;
-    padding-left: 8.5rem;
-    opacity: 1;
-    position: relative;
-    top: 18%;
-    animation: SlideIn 1.4s ease-out;
+    animation: SlideIn 1.4s;
     animation-delay: .2s;
     animation-fill-mode: backwards;
+
+    height: 50vh;
+    opacity: 1;
+    position: relative;
+    top: 8%;
+    left: 35%;
+    
 
     h1, h3 {
       position: relative;
@@ -44,8 +48,9 @@ const MainContent = styled.div`
     }
 
     @media(max-width: 888px) {
-      padding-left: 0;
+      padding-left: 2rem;
       top: 0%;
+      left: 18%;
 
       h1, h3 {
         font-size: 2.5rem;
@@ -57,14 +62,11 @@ const MainContent = styled.div`
   }
 
   @keyframes SlideIn {
-    0% {position: relative; top: -10%; opacity: 0; font-size: 3rem;
-      z-index: 105;}
+    0% {opacity: 0; top: 80%; left: -200px; z-index: 20;}
     
-    50% {font-size: 2rem; position: relative; top:40%;
-      left: 0%;
-      z-index: 105;}
-    100% {opacity: 1; position: relative;
-      z-index: 10;}
+    50% {left: 700px; top: 50%; z-index: 20;}
+
+    75%, 100% {opacity: 1; z-index: 20;}
   } 
 
   
@@ -88,6 +90,9 @@ const FullWidthContainer = styled.div`
         display: flex;
         justify-content: space-around;
         align-items: center;
+        background: linear-gradient(to right, #0B0C10, #1F2833);
+        padding: 3px;
+        border-radius: 50px;
 
         div{
           width:0.7rem;
@@ -163,7 +168,7 @@ const App = () => {
               // onClick={handleClick}
               css={
               {
-                bottom: '40%',
+                bottom: ((mobile === 'notMobile' ? '40%' : '10%')),
                 left: 0,
                 paddingLeft: '2rem'
                 }
@@ -174,7 +179,7 @@ const App = () => {
               pageVal={'next'}
               css={
                 {
-                  bottom: '40%', 
+                  bottom: ((mobile === 'notMobile' ? '40%' : '10%')), 
                   right: 0,  
                   paddingRight: '2rem', 
                   animationDelay: '1.5s'
@@ -219,7 +224,7 @@ const App = () => {
       }
     })
 
-    window.addEventListener('onLoad', () => {
+    window.addEventListener('load', () => {
       if(window.innerWidth <= 888) {
         setMobile('mobile'); 
       }else {
@@ -235,7 +240,7 @@ const App = () => {
         <MainContent>
           {pageToRender === 'about' && <About />}
                                                               {/*if in mobile render the coloured icons only else render the left and right icon components*/}
-          {pageToRender === 'landing' && <><LandingPage /> 
+          {pageToRender === 'landing' && <div className='landingPageContainer'><LandingPage /> 
           {mobile === 'mobile' ?
           <Icons className={'spinner'}  css={{right: '8%', }}></Icons> : 
           <><Icons className='left-icons' css={{
@@ -245,7 +250,7 @@ const App = () => {
             color: 'black', 
             'zIndex': '0',
             'backfaceVisibility': 'visible',
-            }} color={{color: 'black'}}/> <Icons css={{right: '8%', }}/></>}</>}
+            }} color={{color: 'black'}}/> <Icons css={{right: '8%', }}/></>}</div>}
 
           {pageToRender === 'project' && <Projects />}  
             

@@ -2,11 +2,22 @@ import React, {useState} from 'react';
 import styled from 'styled-components';
 
 const HoverContainer = styled.div`
-    margin:2rem;
+    margin:2rem 3.5rem 1rem 0;
+    padding-bottom: -4rem;
     animation: cardFadeIn 1s;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
 
     :hover {
         color: white;
+    }
+
+    //mobile breakpoint
+    @media(max-width: 888px) {
+        margin:1rem 3rem 1rem 4rem;
+        width: 50vw;
+        height: 30vh;
     }
 
 
@@ -14,8 +25,8 @@ const HoverContainer = styled.div`
         background: #66FCF1;
         color: black;
         position: relative;
-        bottom: 22%;
-        left: 9%;
+        bottom: 5%;
+        left: 5%;
         border: none;
         padding: 1rem;
         margin-right: 1rem;
@@ -26,6 +37,13 @@ const HoverContainer = styled.div`
             background: linear-gradient(to right, #0B0C10, #1F2833);
             color: #66FCF1;
             opacity: 1;
+        }
+
+        @media(max-width: 888px) {
+            position: relative;
+            top: -10rem;
+            left: 0rem;
+            width: 4rem;
         }
         
     }
@@ -78,10 +96,9 @@ const CardContainer = styled.div`
     }
 
 
-    @media(min-width: 660px){
+    @media(min-width: 888px){
         width: 30vw;
         height: 30vh;
-
         
 
     }
@@ -91,28 +108,18 @@ const CardContainer = styled.div`
     const TitleContainer = styled.div`
         width: 10%;
         height: 100%;
-        font-size: 1.5rem;
+        font-size: 1.2rem;
         display: flex;
         align-items: center;
         justify-content: center;
-        flex-wrap: wrap;
+        position: relative;
+        left: -3rem;
 
         h5 {
             transform: rotate(-90deg);
-            height: 50%;
+            height: 20%;
         }
 
-    `;
-
-    const Container = styled.div`
-        width: 90%;
-        height: 90%;
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: 50% 50%;
-        z-index: 1;
-
-        
     `;
 
 const ProjectCard = (props) => {
@@ -155,18 +162,15 @@ const ProjectCard = (props) => {
     }
 
     return (
-        <HoverContainer onMouseOver={handleMouseOver} onMouseLeave={handleMouseOut}>
-            <CardContainer>
+        <HoverContainer style={{backgroundImage: `url('${img}') `}} onMouseOver={handleMouseOver} onMouseLeave={handleMouseOut}>
+            <CardContainer >
                 <TitleContainer>
                 <h5>{props.name}</h5>
                 </TitleContainer>
-                <Container style={{backgroundImage: `url('${img}') `}}>
-                    
-                    
-                </Container>
+                
             </CardContainer>
-            <button className={buttonShow()} onMouseOver={handleMouseOver} onClick={codeBtnHandler}>View The Code</button>
-            <button className={buttonShow()}  onMouseOver={handleMouseOver} onClick={siteBtnHandler}>View The Site</button>
+            <button className={buttonShow()} onMouseOver={handleMouseOver} onClick={codeBtnHandler}>View Code</button>
+            <button className={buttonShow()}  onMouseOver={handleMouseOver} onClick={siteBtnHandler}>View Site</button>
         </HoverContainer>
     )
 }
