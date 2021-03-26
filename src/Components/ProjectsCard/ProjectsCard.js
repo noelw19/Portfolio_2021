@@ -3,8 +3,8 @@ import styled from 'styled-components';
 
 const HoverContainer = styled.div`
     
-    margin:0rem 3.5rem 1rem 0;
-    padding-bottom: -4rem;
+    margin:0rem 3.5rem 0rem 0rem;
+
     animation: cardFadeIn 1s;
     background-size: contain;
     background-repeat: no-repeat;
@@ -16,10 +16,9 @@ const HoverContainer = styled.div`
 
     //mobile breakpoint
     @media(max-width: 888px) {
-        margin:5rem 3rem 1rem 4rem;
+        margin:-10rem 3rem 1rem 2rem;
         width: 100vw;
         height: 30vh;
-        padding-top: 10px;
         margin-right: 3.5rem;
     }
 
@@ -28,7 +27,7 @@ const HoverContainer = styled.div`
         background: #66FCF1;
         color: black;
         position: relative;
-        bottom: 5%;
+        bottom: 30px;
         left: 5%;
         border: none;
         padding: .7rem;
@@ -108,17 +107,22 @@ const CardContainer = styled.div`
     
     const TitleContainer = styled.div`
         width: 10%;
-        height: 100%;
+        height: 12rem;
         font-size: 1.2rem;
         display: flex;
         align-items: center;
         justify-content: center;
         position: relative;
-        left: -3rem;
+        left: -2rem;
+        top: 1rem;
 
         h5 {
+            
             transform: rotate(-90deg);
             height: 20%;
+            width: 40rem;
+
+            
         }
 
     `;

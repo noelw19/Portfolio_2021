@@ -9,27 +9,34 @@ const ProjectContainer = styled.div`
     width: 100vw;
     height: 100%;
     text-align: center;
-    padding-top: .5rem;
     background: linear-gradient(to right, #0B0C10, #1F2833);
     color: #66FCF1;
 
     h2{
         margin: 0;
+        
+        @media (max-width: 888px) {
+            padding-top:4rem;
+            
+        }
     }
 `;
 
 const FullWidthContainer = styled.div`
         width: 100vw;
-        height: auto;
+        height: 70vh;
         display: flex;
         justify-content: center;
-        margin-top: 1rem;
-
+        
 
         @media (max-width: 888px) {
-            
+            width: 100vw;
+            height: 40%;
+            display: flex;
+            align-items:center;
             overflow-y: hidden;
             margin-right: 10rem;
+            
         }
     `;
 
@@ -47,8 +54,10 @@ const FullWidthContainer = styled.div`
 
         @media (max-width: 888px) {
             position: relative;
+            top: 40%;
             left: 10%;
             width: 100%;
+            height: 80%;
             display: flex;
             justify-content: flex-start;
             flex-wrap: nowrap;
