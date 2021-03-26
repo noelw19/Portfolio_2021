@@ -31,7 +31,7 @@ const HoverContainer = styled.div`
         bottom: 5%;
         left: 5%;
         border: none;
-        padding: 1rem;
+        padding: .7rem;
         margin-right: 1rem;
         border-radius: 50px;
         z-index: 2;
@@ -46,7 +46,6 @@ const HoverContainer = styled.div`
             bottom: 50px;
             width: 5.5rem;
             opacity: 1;
-            margin-right: 1rem;
             font-size: 10px;
         }
         
