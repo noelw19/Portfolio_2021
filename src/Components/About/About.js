@@ -19,7 +19,7 @@ const ProjectContainer = styled.div`
             text-align: left;
             padding-left: 2rem;
             position: relative;
-            top: 8%;
+            top: 15%;
             
         }
     }
@@ -67,7 +67,7 @@ const FullWidthContainer = styled.div`
 
         @media (max-width: 888px) {
             left: 50%;
-            top 10.5%;
+            top 18%;
             width: 130px;
             height: 130px;
 
@@ -83,6 +83,7 @@ const FullWidthContainer = styled.div`
 
         @media (max-width: 888px) {
             width: 100%;
+            margin-top: 2rem;
             
         }
 
