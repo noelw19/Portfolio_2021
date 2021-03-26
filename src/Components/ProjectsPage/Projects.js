@@ -24,31 +24,56 @@ const FullWidthContainer = styled.div`
         display: flex;
         justify-content: center;
         margin-top: 1rem;
+
+
+        @media (max-width: 888px) {
+            
+            overflow-y: hidden;
+            margin-right: 10rem;
+        }
     `;
 
     const CenteredContainer = styled.div`
-        width: 70%;
+        width: 80%;
         height: auto;
 
         display: flex;
         justify-content: center;
         align-items: center;
+        flex-direction: row;
         flex-wrap: wrap;
+        
+
 
         @media (max-width: 888px) {
+            position: relative;
+            left: 10%;
+            width: 100%;
             display: flex;
             justify-content: flex-start;
-            flex-direction: column;
-            overflow-y: visible;
+            flex-wrap: nowrap;
+            
         }
     `;
 
 const Projects = () => {
+
     return (
         <ProjectContainer>
             <h2> Projects</h2>
-            <FullWidthContainer>
+            <FullWidthContainer className='scrollContainer'>
                 <CenteredContainer>
+                    <Card 
+                    name='Aromatherapy'
+                    bg={img}
+                    site='https://keen-poitras-6360a4.netlify.app/'
+                    code='https://github.com/noelw19/Aromatherapy_site'/>
+
+                    <Card 
+                    name='Stock Tracker'
+                    bg={img1}
+                    site='https://unruffled-borg-11a2bb.netlify.app/'
+                    code='https://github.com/noelw19/stock-app'/>
                     <Card 
                     name='Aromatherapy'
                     bg={img}

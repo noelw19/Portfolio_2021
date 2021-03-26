@@ -2,7 +2,8 @@ import React, {useState} from 'react';
 import styled from 'styled-components';
 
 const HoverContainer = styled.div`
-    margin:2rem 3.5rem 1rem 0;
+    
+    margin:0rem 3.5rem 1rem 0;
     padding-bottom: -4rem;
     animation: cardFadeIn 1s;
     background-size: contain;
@@ -18,6 +19,7 @@ const HoverContainer = styled.div`
         margin:1rem 3rem 1rem 4rem;
         width: 50vw;
         height: 30vh;
+        padding-top: 10px;
     }
 
 
@@ -41,10 +43,10 @@ const HoverContainer = styled.div`
 
         @media(max-width: 888px) {
             bottom: 50px;
-            width: 4rem;
+            width: 5.5rem;
             opacity: 1;
-            margin-right: 4rem;
-            margin-left: 2rem;
+            margin-right: 1rem;
+            font-size: 10px;
         }
         
     }
@@ -86,7 +88,7 @@ const HoverContainer = styled.div`
 `;
 
 const CardContainer = styled.div`
-    width: 50vw;
+    width: 20vw;
     height: 30vh;
     display: flex;
     justify-content: flex-start;
@@ -97,11 +99,9 @@ const CardContainer = styled.div`
     }
 
 
-    @media(min-width: 888px){
-        width: 30vw;
+    @media(max-width: 888px){
+        width: 50vw;
         height: 30vh;
-        
-
     }
     
     `;
