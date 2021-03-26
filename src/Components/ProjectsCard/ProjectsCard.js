@@ -40,10 +40,11 @@ const HoverContainer = styled.div`
         }
 
         @media(max-width: 888px) {
-            position: relative;
-            top: -10rem;
-            left: 0rem;
+            bottom: 50px;
             width: 4rem;
+            opacity: 1;
+            margin-right: 4rem;
+            margin-left: 2rem;
         }
         
     }
@@ -149,7 +150,7 @@ const ProjectCard = (props) => {
 
     function buttonShow() {
         let returnVal;
-
+    if(window.innerWidth > 888) {
         if(showOptions === 'initial') {
             returnVal = 'opac';
         } else if(showOptions === true) {
@@ -157,6 +158,7 @@ const ProjectCard = (props) => {
         } else if(showOptions === false) {
             returnVal = 'fadeOut';
         }
+    }
 
         return returnVal;
     }
