@@ -52,9 +52,9 @@ const FullWidthContainer = styled.div`
 
         @media (max-width: 888px) {
             left: 60%;
-            top 15.5%;
-            width: 130px;
-            height: 130px;
+            top 10.5%;
+            width: 100px;
+            height: 100px;
 
         }
 
@@ -65,6 +65,11 @@ const FullWidthContainer = styled.div`
         height: auto;
         font-size: 1rem;
         padding-top: 3rem;
+
+        @media (max-width: 888px) {
+            width: 100%;
+            padding-top: 3rem;
+        }
 
         p {
             color: white;
@@ -82,7 +87,6 @@ const FullWidthContainer = styled.div`
             @media (max-width: 888px) {
                 padding-left: 2rem;
                 margin-top: 0rem;
-                
                 font-size: .8rem;
             }
         }
