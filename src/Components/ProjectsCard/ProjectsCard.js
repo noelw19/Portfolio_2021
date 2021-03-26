@@ -17,9 +17,10 @@ const HoverContainer = styled.div`
     //mobile breakpoint
     @media(max-width: 888px) {
         margin:1rem 3rem 1rem 4rem;
-        width: 60vw;
+        width: 100vw;
         height: 30vh;
         padding-top: 10px;
+        margin-right: 3.5rem;
     }
 
 
@@ -100,7 +101,7 @@ const CardContainer = styled.div`
 
 
     @media(max-width: 888px){
-        width: 50vw;
+        width: 70vw;
         height: 30vh;
     }
     
