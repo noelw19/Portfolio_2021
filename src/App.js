@@ -49,8 +49,8 @@ const MainContent = styled.div`
 
     @media(max-width: 888px) {
       padding-left: 2rem;
-      top: 0%;
-      left: 18%;
+      top: 20%;
+      left: 8%;
 
       h1, h3 {
         font-size: 2.5rem;
