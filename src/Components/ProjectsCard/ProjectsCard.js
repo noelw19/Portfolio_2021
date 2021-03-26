@@ -16,7 +16,7 @@ const HoverContainer = styled.div`
 
     //mobile breakpoint
     @media(max-width: 888px) {
-        margin:1rem 3rem 1rem 4rem;
+        margin:5rem 3rem 1rem 4rem;
         width: 100vw;
         height: 30vh;
         padding-top: 10px;
