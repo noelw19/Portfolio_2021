@@ -4,11 +4,16 @@ import styled from 'styled-components';
 const HoverContainer = styled.div`
     
     margin:0rem 3.5rem 0rem 0rem;
-
+    width: 30%;
+    height: 40%;
     animation: cardFadeIn 1s;
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% 50%;
+    box-shadow: 10px 10px 10px;
+    border-radius: 25px;
+    border:2px solid black;
+    margin-bottom: 1rem;
 
     :hover {
         color: white;
@@ -16,10 +21,11 @@ const HoverContainer = styled.div`
 
     //mobile breakpoint
     @media(max-width: 888px) {
-        margin:-10rem 3rem 1rem 2rem;
-        width: 100vw;
+        margin:1rem 1rem 1rem 2rem;
+        width: 70vw;
         height: 30vh;
-        margin-right: 3.5rem;
+        margin-left: 5rem;
+        left: -3rem;
     }
 
 
@@ -42,7 +48,7 @@ const HoverContainer = styled.div`
         }
 
         @media(max-width: 888px) {
-            bottom: 50px;
+            bottom: 35px;
             width: 5.5rem;
             opacity: 1;
             font-size: 10px;
@@ -92,6 +98,7 @@ const CardContainer = styled.div`
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    
 
     :hover {
         opacity: 0.5;
@@ -102,6 +109,8 @@ const CardContainer = styled.div`
         width: 70vw;
         height: 30vh;
     }
+
+    
     
     `;
     
@@ -114,17 +123,27 @@ const CardContainer = styled.div`
         justify-content: center;
         position: relative;
         left: -2rem;
-        top: 1rem;
+        top: 0rem;
 
         h5 {
-            
-            transform: rotate(-90deg);
             height: 20%;
-            width: 40rem;
-
-            
+            width: 10rem;
+            transform: rotate(-90deg);
         }
 
+        @media (max-width: 600px) {
+
+            h5 {
+                transform: rotate(-90deg) translateY(-80px) translateX(10%);
+            }
+        }
+
+        @media(max-width: 888px) {
+
+            h5 {
+                transform: rotate(-90deg) translateY(-20px) translateX(20%);
+            }
+        }
     `;
 
 const ProjectCard = (props) => {
@@ -152,7 +171,8 @@ const ProjectCard = (props) => {
         )
     }
 
-    /* function to either sow or hide the project buttons */
+    /* function to either show or hide the project buttons */
+    // and also to show in or out animations
     function buttonShow() {
         let returnVal;
     if(window.innerWidth > 888) {
@@ -169,7 +189,7 @@ const ProjectCard = (props) => {
     }
 
     return (
-        <HoverContainer style={{backgroundImage: `url('${img}') `}} onMouseOver={handleMouseOver} onMouseLeave={handleMouseOut}>
+        <HoverContainer style={{backgroundImage: `url('${img}')`}} onMouseOver={handleMouseOver} onMouseLeave={handleMouseOut}>
             <CardContainer >
                 <TitleContainer>
                 <h5>{props.name}</h5>

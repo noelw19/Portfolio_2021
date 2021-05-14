@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { DiJsBadge, DiCss3, DiHtml5, DiReact, DiGithubBadge } from "react-icons/di";
-import { SiStyledComponents, SiTailwindcss, SiLinkedin} from "react-icons/si";
+import { DiJsBadge, DiCss3, DiHtml5, DiReact, DiGithubBadge, DiNodejsSmall} from "react-icons/di";
+import { SiTailwindcss, SiLinkedin} from "react-icons/si";
 
 const IconContainer = styled.div`
     width: 50vw;
@@ -13,7 +13,7 @@ const IconContainer = styled.div`
     z-index: 100;
 
     p{
-      text-align: center;
+      position: absolute;
     }
 
     //working on responsive icons
@@ -68,6 +68,10 @@ const InnerContainer = styled.div`
             //mobile breakpoint
             //makes sure the icons rotate and end 
             //in a flat state instead of rotated
+            width: 70vw;
+            margin-left: -3rem;
+            
+
           .icon {
             transform: rotate(0deg);
 
@@ -80,6 +84,11 @@ const InnerContainer = styled.div`
         
                 }
               }
+          }
+
+          .iconC {
+              margin: .2rem;
+              width: 8rem;
           }
       }
     
@@ -108,10 +117,15 @@ const InnerContainer = styled.div`
         color: #87CEFA;
     }
 
+    .nodeIcon {
+        color: #3C873A;
+    }
+
     .iconC:hover {
         animation: iconSpin 1s ease-out;
-
     }
+
+
 
     @keyframes iconSpin {
         from {
@@ -139,7 +153,7 @@ const Icons = (props) => {
                 <div className='iconC'><DiReact className='icon' style={props.color}/></div>
             </InnerContainer>
             <InnerContainer>
-                <div className='iconC'><SiStyledComponents className='icon' style={props.color}/></div>
+                <div className='iconC'><DiNodejsSmall className='icon nodeIcon' style={props.color}/></div>
                 <div className='iconC'><DiGithubBadge className='icon git' style={props.color}/></div>
                 <div className='iconC'><SiLinkedin className='icon lnkIn' style={props.color}/></div>
                 <div className='iconC'><SiTailwindcss className='icon TWCss' style={props.color}/></div>

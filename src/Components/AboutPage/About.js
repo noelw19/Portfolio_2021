@@ -62,17 +62,24 @@ const FullWidthContainer = styled.div`
         transform: scale(1);
         border-radius: 50%;
         border: #45A29E 3px solid;
+        box-shadow: 7px 2px 10px;
 
         position: absolute;
         left:15%;
         top: 22%;
 
         @media (max-width: 888px) {
-            left: 55%;
+            left: 45%;
             top 16%;
-            width: 130px;
-            height: 130px;
+            width: 170px;
+            height: 170px;
+        }
 
+        @media (max-width: 600px) {
+            left: 45%;
+            top 16%;
+            width: 140px;
+            height: 140px;
         }
 
     `;

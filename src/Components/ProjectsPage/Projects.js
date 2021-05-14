@@ -4,6 +4,7 @@ import Card from '../ProjectsCard/ProjectsCard';
 
 import img from '../../Images/Screenshot_2021-02-26 Aromatherapy.png';
 import img1 from '../../Images/Screenshot_2021-02-27 React App.png';
+import img2 from '../..//Images/Calculator.png';
 
 const ProjectContainer = styled.div`
     width: 100vw;
@@ -13,12 +14,11 @@ const ProjectContainer = styled.div`
     color: #66FCF1;
 
     h2{
-        margin-top: 2%;
+        margin-top: 1rem;
         margin-bottom: .5rem;
 
         @media (max-width: 888px) {
-            padding-top:4rem;
-            margin-top: 2rem;
+            padding-top:2rem;
         }
     }
 `;
@@ -32,11 +32,11 @@ const FullWidthContainer = styled.div`
 
         @media (max-width: 888px) {
             width: 100vw;
-            height: 40%;
+            height: 60%;
             display: flex;
             align-items:center;
-            overflow-y: hidden;
-            margin-right: 10rem;
+            overflow-x: hidden;
+            overflow-y: scroll;
             
         }
     `;
@@ -55,13 +55,12 @@ const FullWidthContainer = styled.div`
 
         @media (max-width: 888px) {
             position: relative;
-            top: 40%;
-            left: 10%;
+            left: 5%;
             width: 100%;
             height: 80%;
             display: flex;
             justify-content: flex-start;
-            flex-wrap: nowrap;
+            flex-wrap: wrap;
             
         }
     `;
@@ -74,16 +73,11 @@ const Projects = () => {
             <FullWidthContainer>
                 <CenteredContainer>
                     <Card 
-                    name='Aromatherapy'
-                    bg={img}
-                    site='https://keen-poitras-6360a4.netlify.app/'
-                    code='https://github.com/noelw19/Aromatherapy_site'/>
-
-                    <Card 
-                    name='Stock Tracker'
-                    bg={img1}
-                    site='https://unruffled-borg-11a2bb.netlify.app/'
-                    code='https://github.com/noelw19/stock-app'/>
+                    name='Modern Calculator'
+                    bg={img2}
+                    site='https://dreamy-yalow-484b54.netlify.app/'
+                    code='https://github.com/noelw19/modernCalculator'/>
+                    
                     <Card 
                     name='Aromatherapy'
                     bg={img}
@@ -95,6 +89,7 @@ const Projects = () => {
                     bg={img1}
                     site='https://unruffled-borg-11a2bb.netlify.app/'
                     code='https://github.com/noelw19/stock-app'/>
+
                 </CenteredContainer>
             </FullWidthContainer>
         </ProjectContainer>

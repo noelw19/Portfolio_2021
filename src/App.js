@@ -35,26 +35,36 @@ const MainContent = styled.div`
     animation-delay: .2s;
     animation-fill-mode: backwards;
 
-    height: 50vh;
+    height: 10%;
+    width: 50%;
     opacity: 1;
     position: relative;
-    top: 8%;
-    left: 33%;
+    top: -5%;
+    left: 30%;
+    z-index: 1000;
     
 
     h1, h3 {
       position: relative;
+      top: 2rem;
       z-index: 10;
+      margin: 0;
+    }
 
+    h3 {
+      width: 60%;
     }
 
     @media(max-width: 888px) {
-      padding-left: 2rem;
-      top: 21%;
-      left: 8%;
+      position: relative;
+      top: 5rem;
+      left: 35%;
+      width: 50%;
 
       h1, h3 {
-        font-size: 2.5rem;
+        font-size: 1.7rem;
+        height: 20%;
+        width: 100%;
       }
       }
       
@@ -243,6 +253,7 @@ const App = () => {
             left: '3%', 
             opacity: '0.5', 
             color: 'black', 
+            animation: 'none',
             'zIndex': '0',
             'backfaceVisibility': 'visible',
             }} color={{color: 'black'}}/> <Icons css={{right: '8%', }}/></>}</div>}
