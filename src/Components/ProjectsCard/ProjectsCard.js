@@ -24,7 +24,7 @@ const HoverContainer = styled.div`
         margin:1rem 1rem 1rem 2rem;
         width: 70vw;
         height: 30vh;
-        margin-left: 5rem;
+        margin-left: 3.5rem;
         left: -3rem;
     }
 
@@ -52,6 +52,8 @@ const HoverContainer = styled.div`
             width: 5.5rem;
             opacity: 1;
             font-size: 10px;
+            border: 1px solid black;
+            box-shadow: 10px 10px 5px;
         }
         
     }

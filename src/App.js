@@ -6,9 +6,7 @@ import Projects from './Components/ProjectsPage/Projects';
 import About from './Components/AboutPage/About';
 import Landing from './Components/LandingPage/Landing';
 import PageBtn from './Components/Button/PageButton/PageButton';
-
-import Icons from './Components/Icons/Icons';
-
+import {PageNavCircles} from './Components/PageNavCircles/PageNavCircles';
 
 const DisplayArea = styled.div`
   width: 100%;
@@ -17,10 +15,6 @@ const DisplayArea = styled.div`
   display: flex;
   justify-content: center;
   overflow: hidden;
-
-  .hideIt {
-    visibility: hidden;
-  }
 `;
 
 const MainContent = styled.div`
@@ -28,109 +22,9 @@ const MainContent = styled.div`
   height: 100vh;
   font-size: 2rem;
   overflow: hidden;
-  
-
-  .landing {
-    animation: SlideIn 1.4s;
-    animation-delay: .2s;
-    animation-fill-mode: backwards;
-
-    height: 10%;
-    width: 50%;
-    opacity: 1;
-    position: relative;
-    top: -5%;
-    left: 30%;
-    z-index: 1000;
-    
-
-    h1, h3 {
-      position: relative;
-      top: 2rem;
-      z-index: 10;
-      margin: 0;
-    }
-
-    h3 {
-      width: 60%;
-    }
-
-    @media(max-width: 888px) {
-      position: relative;
-      top: 5rem;
-      left: 35%;
-      width: 50%;
-
-      h1, h3 {
-        font-size: 1.7rem;
-        height: 20%;
-        width: 100%;
-      }
-      }
-      
-    }
-
-  }
-
-  @keyframes SlideIn {
-    0% {opacity: 0; top: 80%; left: -200px; z-index: 20;}
-    
-    50% {left: 700px; top: 50%; z-index: 20;}
-
-    75%, 100% {opacity: 1; z-index: 20;}
-  } 
-
-  
-  
 `;
 
-
-
-const FullWidthContainer = styled.div`
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        
-      `;
-
-      const NavCircleContainer = styled.div`
-        width: 15vw;
-        position: fixed;
-        left: 40%;
-        bottom: 8%;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        background: linear-gradient(to right, #0B0C10, #1F2833);
-        padding: 3px;
-        border-radius: 50px;
-
-        div{
-          width:0.7rem;
-          height: 0.7rem;
-          background: white;
-          color: black;
-          border-radius: 50%;
-          text-align: center;
-          padding: 4px;
-        }
-
-        .active{
-          background: #66FCF1;
-        }
-
-        .opacity {
-          opacity: 0.2;
-          width: 0.3rem;
-          height: 0.3rem;
-          color: none;
-        }
-
-      
-      `;
-
 const App = () => {
-
   const [pageToRender, setPageToRender] = useState('landing');
   const [switchDirection, setSwitchDirection] = useState('');
   const [mobile, setMobile] = useState('');
@@ -142,44 +36,53 @@ const App = () => {
 
     /* checks direction to use and finds the page to render 
       depending on the button pressed and current page */
-    if(direction === 'next') {
-      if(currentPage === 'landing') {
-        setPageToRender('project')
-      } else if(currentPage === 'about') {
-        setPageToRender('landing')
-      } else if(currentPage === 'project') {
-        setPageToRender('about')
+      switch(direction) {
+        case 'next':
+          switch(currentPage) {
+            case 'landing':
+              setPageToRender('project')
+              break;
+            case 'about':
+              setPageToRender('landing')
+              break;
+            case 'project':
+              setPageToRender('about')
+              break;
+          }
+          break;
+        case 'back':
+          switch(currentPage) {
+            case 'landing':
+              setPageToRender('about');
+              break;
+            case 'about':
+              setPageToRender('project')
+              break;
+            case 'project':
+              setPageToRender('landing')
+          }
+          break;
       }
-    } else if(direction === 'back') {
-      if(currentPage === 'landing') {
-        setPageToRender('about')
-      } else if(currentPage === 'about') {
-        setPageToRender('project')
-      } else if(currentPage === 'project') {
-        setPageToRender('landing')
-      }
+  }, [switchDirection])
+  
+  
+  
+  //code for the back and next buttons
+  function FixedButtons() {
+
+    //callback that retrieves the childs state which is the current page to render
+    const pageStateCallback = (props) => {
+        const pageDirection = props;
+        setSwitchDirection(pageDirection)
+        console.log(pageDirection);
     }
-  })
-  
-  //callback that retrieves the childs state which is the current page to render
-  const pageStateCallback = (props) => {
-      const pageDirection = props;
 
-      setSwitchDirection(pageDirection)
-      console.log(pageDirection);
-  
-      
-  }
-
-    //code for the back and next buttons
-    function FixedButtons() {
-      return (
+    return (
           <div>
             <PageBtn 
               title={'Back'} 
               sendStateBack={pageStateCallback}
               pageVal={'back'}
-              // onClick={handleClick}
               css={
               {
                 bottom: ((mobile === 'notMobile' ? '40%' : '10%')),
@@ -204,67 +107,41 @@ const App = () => {
       )
     }
 
-    //navigation circles at the bottom of the page
-    function PageNavCircles() {
-      return (
-        <>
-            <FullWidthContainer>
-              <NavCircleContainer >
-                {/* 3 divs that conditionally style according to current page */}
-                <div className={`${pageToRender === 'about' ? 'active' : 'opacity'}`}></div>
-                <div className={`${pageToRender === 'landing' ? 'active' : 'opacity'}`} ></div>
-                <div className={`${pageToRender === 'project' ? 'active' : 'opacity'}`}></div>
-              </NavCircleContainer >
-            </FullWidthContainer>
-        </>
-      )
-    }
-
-    //listens for resize event and sets the current state
-    window.addEventListener('resize', () => {
+    const setMobileResponsive = () => {
       if(window.innerWidth <= 888) {
         setMobile('mobile'); 
       }else {
         setMobile('notMobile');
       }
+    }
+    //listens for resize event and sets the current state
+    window.addEventListener('resize', () => {
+      setMobileResponsive();
     })
     //listener for onload and set current state as mobile or not
     window.addEventListener('load', () => {
-      if(window.innerWidth <= 888) {
-        setMobile('mobile'); 
-      }else {
-        setMobile('notMobile');
-      }
+      setMobileResponsive();
     })
+
+    function getPageCircleClick(renderPage) {
+      let newPage = renderPage;
+      setPageToRender(newPage);
+    }
+
+    
 
   return (
     <div className="App">
       <DisplayArea>
           {FixedButtons()}
-          {PageNavCircles()}
+          <PageNavCircles render={pageToRender} callback={getPageCircleClick}/>
         <MainContent>
           {pageToRender === 'about' && <About />}
-                                                              {/*if in mobile render the coloured icons only else render the left and right icon components*/}
-          {pageToRender === 'landing' && <div className='landingPageContainer'><Landing /> 
-          {mobile === 'mobile' ?
-          <Icons css={{right: '9%', top: '40%'}}></Icons> : 
-          <><Icons className='left-icons' css={{
-            transform: 'rotate(45deg) scaleX(-1)',
-            left: '3%', 
-            opacity: '0.5', 
-            color: 'black', 
-            animation: 'none',
-            'zIndex': '0',
-            'backfaceVisibility': 'visible',
-            }} color={{color: 'black'}}/> <Icons css={{right: '8%', }}/></>}</div>}
+          {/*if in mobile render the coloured icons only else render the left and right icon components*/}
+          {pageToRender === 'landing' && <div className='landingPageContainer'><Landing size={mobile}/></div>}
 
           {pageToRender === 'project' && <Projects />}  
-            
-            {/* look at extracting the icon components
-            and adding them to a separate function that checks screen size 
-            and displays both on desktop and only 1 of the components below
-            header. */}
-          
+
         </MainContent>
 
       </DisplayArea>

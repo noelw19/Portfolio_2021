@@ -47,13 +47,13 @@ const InnerContainer = styled.div`
         height: 100%;
         transform: rotate(45deg);
         animation: spin 2s;
-        animation-delay: 1.5s;
         animation-fill-mode: backwards;
       }
 
       @keyframes spin {
-        0% {transform:rotate(-360deg) translateX(40px); opacity: 0;}
+        0% {transform:rotate(-360deg); opacity: 0;}
 
+        75% { opacity: 1;}
         100% {
             //needs to be zero so that it ends at the original position
           transform: rotate(45deg);
@@ -141,24 +141,106 @@ const InnerContainer = styled.div`
 
 `;
 
+const Cont = styled.div`
+    .iconName {
+        text-align: center;
+    }
+
+    .newIcon {
+        transform: translateY(280px) translateX(120px);
+        border-top: 2px solid #66FCF1;
+        border-left: 2px solid #66FCF1;
+        border-right: 2px solid #66FCF1;
+        border-bottom: 2px solid white;
+    }
+
+    @media (max-width: 888px) {
+
+        .iconName {
+            width: 900px;
+            font-size: 1rem;
+
+        }
+
+        .newIcon {
+            transform: translateX(370px) translateY(220px);
+            width: 300px;
+        }
+    }
+
+    //breakpoint to style smallest screen and the
+    //onhover element for the icons
+    @media (max-width: 580px) {
+        .newIcon {
+            transform: translateX(130px) translateY(230px);
+            width: 300px;
+        }
+    }
+
+    .slideAnim {
+        animation: slideAcross .4s;
+    }
+
+    @keyframes slideAcross {
+        0% {left: 70%; bottom: -300px; opacity: 0}
+        75% {left: 70%; bottom: -250px; opacity: 0.5}
+        100% {left 110%; bottom: -300px; opacity: 1}
+    }
+`;
 
 
 const Icons = (props) => {
+    let icon = document.querySelectorAll('.icon');
+    
+    // function removeIconNames() => {
+        
+        // }
+        
+        let textShower = (val) => {
+        let iconText = document.querySelector('.iconName');
+        // console.log(iconText)
+
+        if(val === 'remove') {
+            //remove str added onmouseleave
+            //to clear previous data rendered in the iconName element
+            let current = document.querySelector('.newIcon');
+            current.parentNode.removeChild(current)
+        }else {
+            //if anything else then create and append element
+            let text;
+        let el = document.createElement('P')
+        if(val === 'Github' || val === 'LinkedIn') text = document.createTextNode('Check my ' + val)
+
+        else text = document.createTextNode(val);
+        el.appendChild(text);
+        el.style.fontSize = '1rem';
+        el.style.padding = '4px';
+        el.style.width = '20%';
+        el.style.color = 'white';
+        el.classList.add('newIcon');
+        el.classList.add('slideAnim');
+        iconText.appendChild(el);
+        }
+    }
+
     return (
-        <IconContainer style={props.css}>
+        <Cont>
+            <IconContainer style={props.css}>
             <InnerContainer>
-                <div className='iconC'><DiJsBadge className='icon js' style={props.color}/></div>
-                <div className='iconC'><DiHtml5 className='icon html' style={props.color}/></div>
-                <div className='iconC'><DiCss3 className='icon css' style={props.color}/></div>
-                <div className='iconC'><DiReact className='icon' style={props.color}/></div>
+                <div className='iconC'><DiJsBadge className='icon js' onMouseEnter={() => textShower('Javascript')} onMouseLeave={() => textShower('remove')} style={props.color}/></div>
+                <div className='iconC'><DiHtml5 className='icon html' onMouseEnter={() => textShower('HTML5')} onMouseLeave={() => textShower('remove')} style={props.color}/></div>
+                <div className='iconC'><DiCss3 className='icon css' onMouseEnter={() => textShower('CSS3')} onMouseLeave={() => textShower('remove')} style={props.color}/></div>
+                <div className='iconC'><DiReact className='icon' onMouseEnter={() => textShower('ReactJS')} onMouseLeave={() => textShower('remove')} style={props.color}/></div>
             </InnerContainer>
             <InnerContainer>
-                <div className='iconC'><DiNodejsSmall className='icon nodeIcon' style={props.color}/></div>
-                <div className='iconC'><DiGithubBadge className='icon git' style={props.color}/></div>
-                <div className='iconC'><SiLinkedin className='icon lnkIn' style={props.color}/></div>
-                <div className='iconC'><SiTailwindcss className='icon TWCss' style={props.color}/></div>
+                <div className='iconC'><DiNodejsSmall className='icon nodeIcon' onMouseEnter={() => textShower('NodeJS')} onMouseLeave={() => textShower('remove')} style={props.color}/></div>
+                <div className='iconC' ><DiGithubBadge className='icon git' onMouseEnter={() => textShower('Github')} onMouseLeave={() => textShower('remove')} onClick={() => {window.open('https://github.com/')}} style={props.color}/></div>
+                <div className='iconC'><SiLinkedin className='icon lnkIn' onMouseEnter={() => textShower('LinkedIn')} onMouseLeave={() => textShower('remove')} onClick={() => {window.open('https://www.linkedin.com/in/noel-williams-1660b1190/')}}style={props.color}/></div>
+                <div className='iconC'><SiTailwindcss className='icon TWCss' onMouseEnter={() => textShower('Tailwind CSS')} onMouseLeave={() => textShower('remove')} style={props.color}/></div>
             </InnerContainer>
         </ IconContainer>
+        <div className='iconName'></div>
+        </Cont>
         
     )
 }

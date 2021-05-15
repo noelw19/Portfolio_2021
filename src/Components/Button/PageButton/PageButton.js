@@ -17,7 +17,6 @@ const GlowArea = styled.div`
             border-radius: 50%;
             background: #66FCF1;
             color: black;
-            animation: pulse 3s infinite;
 
         }
             //adjusted sizes for responsivity 
@@ -30,6 +29,12 @@ const GlowArea = styled.div`
                 height: 2.5rem;
                 font-size: .5rem;
             }
+        }
+
+
+
+        .pulse {
+            animation: pulse 3s infinite;
         }
 
         button:hover {
@@ -52,24 +57,19 @@ const GlowArea = styled.div`
           }
 
     `;
-
 const PageButton = (props) => {
-
     const [page, SetPage] = useState('');
 
     useEffect(() => {
         const callback = props.sendStateBack;
-
         callback(page);
         SetPage(null)
     }, [page] );
 
 
-    
-
     return (
-        <GlowArea style={props.css}   >
-            <button type='button' onClick={() => SetPage(props.pageVal)}>{props.title}</button>
+        <GlowArea id='glowArea' style={props.css}   >
+            <button className='pulse' type='button' onClick={() => SetPage(props.pageVal)}>{props.title}</button>
         </GlowArea>
     )
 }
