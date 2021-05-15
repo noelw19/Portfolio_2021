@@ -14,6 +14,7 @@ const DisplayArea = styled.div`
   color: #66FCF1;
   display: flex;
   justify-content: center;
+  align-items: center;
   overflow: hidden;
 `;
 
@@ -87,7 +88,8 @@ const App = () => {
               {
                 bottom: ((mobile === 'notMobile' ? '40%' : '10%')),
                 left: 0,
-                paddingLeft: '2rem'
+                paddingLeft: ((mobile === 'notMobile' ? '2rem' : '0rem')),
+                transform: 'translateX(-20px)',
                 }
               } />
             <PageBtn 
@@ -98,8 +100,9 @@ const App = () => {
                 {
                   bottom: ((mobile === 'notMobile' ? '40%' : '10%')), 
                   right: 0,  
-                  paddingRight: '2rem', 
-                  animationDelay: '1.5s'
+                  paddingRight: ((mobile === 'notMobile' ? '2rem' : '0rem')), 
+                  animationDelay: '1.5s',
+                  transform: 'translateX(20px)',
                   }
               } />
               

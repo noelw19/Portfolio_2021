@@ -21,13 +21,15 @@ const GlowArea = styled.div`
         }
             //adjusted sizes for responsivity 
         @media (max-width: 888px) {
-            width: 4rem;
-            height: 4rem;
+            width: 7rem;
+            height: auto;
 
             button {
-                width: 2.5rem;
-                height: 2.5rem;
-                font-size: .5rem;
+                border-radius: 25px;
+                top: 20px;
+                width: 7rem;
+                height: 5rem;
+                font-size: 1rem;
             }
         }
 

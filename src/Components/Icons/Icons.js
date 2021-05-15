@@ -144,7 +144,7 @@ const InnerContainer = styled.div`
 const Cont = styled.div`
     .iconName {
         text-align: center;
-        width:10%;
+        width:15%;
     }
 
     .newIcon {
@@ -173,7 +173,7 @@ const Cont = styled.div`
     //onhover element for the icons
     @media (max-width: 580px) {
         .newIcon {
-            transform: translateX(130px) translateY(190px);
+            transform: translateX(60px) translateY(190px);
             width: 300px;
         }
     }
