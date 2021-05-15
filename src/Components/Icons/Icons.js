@@ -173,8 +173,8 @@ const Cont = styled.div`
     //onhover element for the icons
     @media (max-width: 580px) {
         .newIcon {
-            transform: translateX(60px) translateY(190px);
-            width: 300px;
+            transform: translateX(130px) translateY(200px);
+            width: 160px;
         }
     }
 
