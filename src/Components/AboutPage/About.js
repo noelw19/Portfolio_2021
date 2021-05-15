@@ -8,6 +8,7 @@ const ProjectContainer = styled.div`
     height: 100vh;
     text-align: center;
     padding-top: .5rem;
+    margin-top: 0rem;
     background: linear-gradient(to right, #0B0C10, #1F2833);
     color: #66FCF1;
 
@@ -16,11 +17,10 @@ const ProjectContainer = styled.div`
         animation: growIn 2s;
         margin-top: 2%;
         @media (max-width: 888px) {
-            width: 100%;
-            text-align: left;
-            padding-left: 2rem;
+            width: 100vw;
+            text-align: center;
             position: relative;
-            top: 15%;
+            top: 3%;
             
         }
     }
@@ -42,12 +42,12 @@ const FullWidthContainer = styled.div`
         height: 40%;
         display: flex;
         justify-content: center;
-        margin-top: 2rem;
+        margin-top: 1rem;
 
         @media (max-width: 888px) {
             width: 100%;
             height: 50%;
-            padding-top: 3.7rem;
+            padding-top: 1rem;
             
         }
     `;
@@ -59,41 +59,45 @@ const FullWidthContainer = styled.div`
         background-size: cover;
         background-repeat: no-repeat;
         background-position: 50% 50%;
-        transform: scale(1);
+        // transform: scale(1);
         border-radius: 50%;
         border: #45A29E 3px solid;
         box-shadow: 7px 2px 10px;
 
         position: absolute;
-        left:15%;
-        top: 22%;
+        left:28%;
+        top: 24%;
 
-        @media (max-width: 888px) {
-            left: 45%;
-            top 16%;
-            width: 170px;
-            height: 170px;
+        // for tablet
+        @media (max-width: 1100px) {
+            position: absolute;
+            top 27%;
+            width: 160px;
+            height: 160px;
         }
 
-        @media (max-width: 600px) {
-            left: 45%;
-            top 16%;
-            width: 140px;
-            height: 140px;
+        //mobile
+        @media (max-width: 888px) {
+            left: 57%;
+            top: 22%;
+            width: 130px;
+            height: 130px;
         }
 
     `;
 
     /* Holds all of the text elements bar the header */
     const CenteredContainer = styled.div`
-        width: 70%;
+        width: 50%;
         height: auto;
         font-size: 1rem;
         padding-top: 2rem;
+        margin-left: 80px;
 
         @media (max-width: 888px) {
-            width: 100%;
-            
+            width: 80%;
+            margin: 0;
+            padding-top: 1rem;
         }
 
         p {
@@ -106,11 +110,13 @@ const FullWidthContainer = styled.div`
 
         .pRight {
             text-align: left;
-            padding-left: 14rem;
+            padding-left: 13rem;
+            width: 48%;
 
             //mobile
             @media (max-width: 888px) {
-                padding-left: 2rem;
+                padding-left: 0rem;
+                margin-left: 2rem;
                 margin-top: 0rem;
                 font-size: .8rem;
             }
@@ -118,24 +124,29 @@ const FullWidthContainer = styled.div`
 
         //main about holds the bio paragraph
         .mainAbout {
-            width: 80%;
+            width: 100%;
             height: auto;
             word-wrap: break-word;
             text-align: left;
             font-size: 1.2rem;
-            padding-top: 1rem;
+            // padding-top: 1rem;
             color: transparent;
             background: rgb(102,252,241);
             background: linear-gradient(270deg, rgba(102,252,241,1) 57%, rgba(255,255,255,1) 59%); 
             background-clip: text;
             margin-top: 4rem;
 
-            //mobile
+            //tablet
             @media (max-width: 888px) {
-                font-size: .8rem;
+                width: 80%;
+                font-size: 1.2rem;
                 margin-left: 2rem;
                 padding-right: 2rem;
-                margin-top: 0;
+                margin-top: 3rem;
+            }
+
+            @media (max-width: 600px) {
+                font-size: .9rem;
             }
         }
     `;

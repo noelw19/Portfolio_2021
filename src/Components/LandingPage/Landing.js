@@ -3,17 +3,18 @@ import styled from 'styled-components';
 import Icons from '../Icons/Icons'
 
 const HeaderElContainer = styled.div`
-  animation: SlideIn .5s;
-  animation-delay: .2s;
-  animation-fill-mode: backwards;
 
   height: 10%;
   width: 40%;
   opacity: 1;
   position: relative;
   top: -5%;
-  left: 30%;
+  left: 28%;
   z-index: 1000;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   
 
   h1, h3 {
@@ -25,17 +26,19 @@ const HeaderElContainer = styled.div`
 
   h3 {
     width: 60%;
+    text-align: center;
   }
 
   @media(max-width: 888px) {
     position: relative;
-    top: 4rem;
-    left: 15%;
-    width: 90%;
+    top: 2rem;
+    left: 0%;
+    width: 100%;
 
     h1, h3 {
       height: 20%;
       width: 100%;
+      text-align:center;
     }
 
     h1 {
@@ -45,6 +48,11 @@ const HeaderElContainer = styled.div`
     h3 {
       fon-size: 2rem;
     }
+    }
+
+    .slideAnim {
+      animation: SlideIn .8s;
+      animation-fill-mode: backwards;
     }
 
   @keyframes SlideIn {
@@ -63,7 +71,7 @@ const LandingPage = (props) => {
     //and plugged directly into the Icon container element
     //via props.css
   function landingIconResponsiveMobileToggle(val) {
-    let mobile = <Icons size={val} css={{right: '9%', top: '40%'}}/>;
+    let mobile = <Icons size={val} css={{right: '9%', top: '35%'}}/>;
     let desktop = <><Icons className='left-icons' size={val} css={{
       transform: 'rotate(45deg) scaleX(-1)',
       left: '3%', 
@@ -73,19 +81,25 @@ const LandingPage = (props) => {
       'zIndex': '0',
       'backfaceVisibility': 'visible',
       }} color={{color: 'black'}}/> <Icons css={{right: '8%', }}/></>;
+      
+      let webText = document.getElementsByTagName('H3');
       if(val === 'mobile') {
+        console.log(webText[0].innerText)
+        if(webText[0]) webText[0].innerText = '-Web Developer-';
+
         return mobile;
       } else if(val === 'notMobile') {
+        if(webText[0]) webText[0].innerText = 'Web Developer';
       return desktop;
       }
-  }
+  } 
 
   
     return (
       <>
         <HeaderElContainer>
-          <h1>Noel Williams</h1>
-          <h3>Web Developer</h3>
+          <h1 className='slideAnim' style={{animationDelay: '1.3s'}}>Noel Williams</h1>
+          <h3 className='slideAnim' style={{animationDelay: '.5s'}}>Web Developer</h3>
         </HeaderElContainer>
         {landingIconResponsiveMobileToggle(props.size)}
       </>

@@ -144,6 +144,7 @@ const InnerContainer = styled.div`
 const Cont = styled.div`
     .iconName {
         text-align: center;
+        width:10%;
     }
 
     .newIcon {
@@ -157,13 +158,13 @@ const Cont = styled.div`
     @media (max-width: 888px) {
 
         .iconName {
-            width: 900px;
+            width: 100%;
             font-size: 1rem;
-
         }
 
+        // breakpoint for tablet append element
         .newIcon {
-            transform: translateX(370px) translateY(220px);
+            transform: translateX(200px) translateY(187px);
             width: 300px;
         }
     }
@@ -172,7 +173,7 @@ const Cont = styled.div`
     //onhover element for the icons
     @media (max-width: 580px) {
         .newIcon {
-            transform: translateX(130px) translateY(230px);
+            transform: translateX(130px) translateY(190px);
             width: 300px;
         }
     }
@@ -215,8 +216,8 @@ const Icons = (props) => {
         el.appendChild(text);
         el.style.fontSize = '1rem';
         el.style.padding = '4px';
-        el.style.width = '20%';
         el.style.color = 'white';
+        el.style.borderRadius = '25px';
         el.classList.add('newIcon');
         el.classList.add('slideAnim');
         iconText.appendChild(el);
