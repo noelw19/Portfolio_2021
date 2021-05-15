@@ -83,10 +83,11 @@ const LandingPage = (props) => {
       }} color={{color: 'black'}}/> <Icons css={{right: '8%', }}/></>;
       
       let webText = document.getElementsByTagName('H3');
-      if(val === 'mobile') {
-        console.log(webText[0].innerText)
-        if(webText[0]) webText[0].innerText = '-Web Developer-';
 
+      if(val === 'mobile') {
+        // console.log(webText[0].innerText)
+        if(webText[0]) webText[0].innerText = '-Web Developer-';
+        else return mobile;
         return mobile;
       } else if(val === 'notMobile') {
         if(webText[0]) webText[0].innerText = 'Web Developer';
