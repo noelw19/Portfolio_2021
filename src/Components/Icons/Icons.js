@@ -22,7 +22,7 @@ const IconContainer = styled.div`
 
         transform: rotate(0deg);
         bottom: 10%;
-        left: 25%;
+        left: 27%;
         
       }
 `;
@@ -142,6 +142,7 @@ const InnerContainer = styled.div`
 `;
 
 const Cont = styled.div`
+    
     .iconName {
         text-align: center;
         width:15%;
