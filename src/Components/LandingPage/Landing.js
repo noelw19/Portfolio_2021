@@ -19,9 +19,11 @@ const HeaderElContainer = styled.div`
 
   h1, h3 {
     position: relative;
-    top: 2rem;
+    top: 10rem;
     z-index: 10;
     margin: 0;
+    font-size: 1.6rem;
+
   }
 
   h3 {
@@ -29,7 +31,16 @@ const HeaderElContainer = styled.div`
     text-align: center;
   }
 
-  @media(max-width: 888px) {
+  @media(min-width: 1000px) {
+    h1, h3 {
+      height: 20%;
+      width: 90%;
+      text-align:center;
+      font-size: 3rem;
+    }
+  }
+
+  @media(max-width: 900px) {
     position: relative;
     top: 2rem;
     left: 0%;
@@ -37,16 +48,16 @@ const HeaderElContainer = styled.div`
 
     h1, h3 {
       height: 20%;
-      width: 100%;
+      width: 90%;
       text-align:center;
     }
 
     h1 {
-      font-size: 3rem;
+      font-size: 2rem;
     }
 
     h3 {
-      fon-size: 2rem;
+      font-size: 2rem;
     }
     }
 

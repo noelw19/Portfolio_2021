@@ -64,22 +64,22 @@ const FullWidthContainer = styled.div`
         border: #45A29E 3px solid;
         box-shadow: 7px 2px 10px;
 
-        position: absolute;
-        left:28%;
-        top: 24%;
+        // position: absolute;
+        // left:28%;
+        // top: 24%;
 
         // for tablet
         @media (max-width: 1100px) {
-            position: absolute;
-            top 27%;
+            // position: absolute;
+            // top 27%;
             width: 160px;
             height: 160px;
         }
 
         //mobile
         @media (max-width: 888px) {
-            left: 57%;
-            top: 22%;
+            // left: 57%;
+            // top: 22%;
             width: 130px;
             height: 130px;
         }
@@ -93,6 +93,8 @@ const FullWidthContainer = styled.div`
         font-size: 1rem;
         padding-top: 2rem;
         margin-left: 80px;
+        display: flex;
+        flex-direction: column;
 
         @media (max-width: 888px) {
             width: 80%;
@@ -108,18 +110,22 @@ const FullWidthContainer = styled.div`
             color: #66FCF1;
         }
 
-        .pRight {
+        .pLeft {
             text-align: left;
-            padding-left: 13rem;
             width: 48%;
 
             //mobile
             @media (max-width: 888px) {
                 padding-left: 0rem;
-                margin-left: 2rem;
                 margin-top: 0rem;
                 font-size: .8rem;
             }
+        }
+
+        .row {
+            display: flex;
+            flex-direction: row;
+
         }
 
         //main about holds the bio paragraph
@@ -130,17 +136,13 @@ const FullWidthContainer = styled.div`
             text-align: left;
             font-size: 1.2rem;
             // padding-top: 1rem;
-            color: transparent;
-            background: rgb(102,252,241);
-            background: linear-gradient(270deg, rgba(102,252,241,1) 57%, rgba(255,255,255,1) 59%); 
-            background-clip: text;
+            color: white;
             margin-top: 4rem;
 
             //tablet
             @media (max-width: 888px) {
                 width: 80%;
                 font-size: 1.2rem;
-                margin-left: 2rem;
                 padding-right: 2rem;
                 margin-top: 3rem;
             }
@@ -155,13 +157,17 @@ const About = () => {
     return (
         <ProjectContainer>
             <h2> About</h2>
-            <ImgContainer></ImgContainer>
             <FullWidthContainer>
             
                 <CenteredContainer>
-                    <p className='pRight'><span>Born</span>: 19th April 1995.</p>
-                    <p className='pRight'><span>Living in</span>: Nelson, NZ.</p>
-                    <p className='pRight'><span>Birth Place</span>: Port Moresby, Papua New Guinea.</p>
+                    <div class='row'>
+                    <div class='column'>
+                    <p className='pLeft'><span>Born</span>: 19th April 1995.</p>
+                    <p className='pLeft'><span>Living in</span>: Nelson, NZ.</p>
+                    <p className='pLeft'><span>Birth Place</span>: Port Moresby, Papua New Guinea.</p>
+                    </div>
+                <ImgContainer></ImgContainer>
+                    </div>
                     <p className='mainAbout'>
                         A 26 year old with a thirst for knowledge, 
                         a bubbly personality and a never give-up attitude. 

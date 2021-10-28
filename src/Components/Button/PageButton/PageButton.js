@@ -71,7 +71,7 @@ const PageButton = (props) => {
 
     return (
         <GlowArea id='glowArea' style={props.css}   >
-            <button className='pulse' type='button' onClick={() => SetPage(props.pageVal)}>{props.title}</button>
+            <button type='button' onClick={() => SetPage(props.pageVal)}>{props.title}</button>
         </GlowArea>
     )
 }
