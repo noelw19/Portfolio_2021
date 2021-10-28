@@ -127,6 +127,7 @@ const CardContainer = styled.div`
         left: -2rem;
         top: 0rem;
         background: #0B0C10;
+        border: 1px solid #66FCF1;
 
         h5 {
             height: 20%;

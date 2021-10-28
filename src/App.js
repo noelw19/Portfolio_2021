@@ -1,3 +1,4 @@
+/* eslint-disable default-case */
 
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
@@ -39,6 +40,7 @@ const App = () => {
       depending on the button pressed and current page */
       switch(direction) {
         case 'next':
+          // eslint-disable-next-line default-case
           switch(currentPage) {
             case 'landing':
               setPageToRender('project')
@@ -49,6 +51,7 @@ const App = () => {
             case 'project':
               setPageToRender('about')
               break;
+             
           }
           break;
         case 'back':
@@ -61,8 +64,11 @@ const App = () => {
               break;
             case 'project':
               setPageToRender('landing')
+              default: 
+            break;
           }
           break;
+          
       }
   }, [switchDirection])
   
